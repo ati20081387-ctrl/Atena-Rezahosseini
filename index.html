@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آتنا | دفترچه دیجیتال</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+        :root {
+            --bg: #090c18;
+            --card: #12182b;
+            --card2: #192039;
+            --line: #303b5d;
+            --purple: #b49aff;
+            --blue: #8fc4f2;
+            --pale: #e9e6ff;
+            --muted: #a6b0ca;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(ellipse at 15% 5%, #45336c55, transparent 32%),
+                radial-gradient(ellipse at 90% 38%, #244d7550, transparent 35%),
+                var(--bg);
+            color: var(--pale);
+            font-family: Vazirmatn, Tahoma, sans-serif;
+            line-height: 1.95;
+        }
+
+        body:before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: .18;
+            background-image: radial-gradient(#d7dfff 1px, transparent 1px);
+            background-size: 49px 49px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .wrap {
+            width: min(1080px, calc(100% - 34px));
+            margin: auto;
+            position: relative;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .brand {
+            color: var(--purple);
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        .links {
+            display: flex;
+            gap: 18px;
+        }
+
+        .links a:hover {
+            color: var(--blue);
+        }
+
+        /* Hero */
+        .hero {
+            display: grid;
+            grid-template-columns: 1.15fr .85fr;
+            align-items: center;
+            gap: 25px;
+            padding: 45px 0 65px;
+            min-height: 480px;
+        }
+
+        .kicker {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: var(--blue);
+        }
+
+        h1 {
+            font-size: clamp(54px, 9vw, 90px);
+            line-height: 1.2;
+            margin: 12px 0;
+            color: #f1efff;
+        }
+
+        h1 span {
+            color: var(--purple);
+        }
+
+        .tagline {
+            border-right: 2px solid var(--purple);
+            padding-right: 13px;
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 24px;
+        }
+
+        /* Moon */
+        .sky {
+            height: 300px;
+            display: grid;
+            place-items: center;
+            position: relative;
+        }
+
+        .moon {
+            width: 185px;
+            height: 185px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle at 32% 28%,
+                #f0eaff,
+                #b5a5e8 37%,
+                #6575a8 72%,
+                #273456
+            );
+            box-shadow: 0 0 65px #a99aff55;
+            position: relative;
+        }
+
+        .moon:after {
+            content: "";
+            position: absolute;
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            background: #0c1122;
+            left: 54px;
+            top: -21px;
+        }
+
+        .orbit {
+            position: absolute;
+            width: 285px;
+            height: 285px;
+            border: 1px solid #8793c566;
+            border-radius: 50%;
+            transform: scaleY(.36) rotate(-20deg);
+        }
+
+        .star {
+            position: absolute;
+            color: var(--blue);
+            font-size: 22px;
+        }
+
+        .s1 {
+            top: 35px;
+            right: 45px;
+        }
+
+        .s2 {
+            bottom: 44px;
+            left: 38px;
+            font-size: 14px;
+        }
+
+        .skylabel {
+            position: absolute;
+            bottom: 0;
+            color: var(--muted);
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
+        /* Sections */
+        section {
+            padding: 25px 0 38px;
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .no {
+            color: var(--blue);
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            margin: 0;
+            color: var(--purple);
+            font-size: 21px;
+            font-weight: 600;
+        }
+
+        .heading:after {
+            content: "";
+            height: 1px;
+            background: linear-gradient(90deg, var(--line), transparent);
+            flex: 1;
+        }
+
+        /* About */
+        .grid2 {
+            display: grid;
+            grid-template-columns: 1.15fr .85fr;
+            gap: 14px;
+        }
+
+        .panel {
+            background: linear-gradient(145deg, #171e35ee, #101629ee);
+            border: 1px solid var(--line);
+            border-radius: 17px;
+            padding: 23px;
+        }
+
+        .label {
+            color: var(--blue);
+            font-size: 10px;
+            letter-spacing: 2px;
+            margin-bottom: 9px;
+        }
+
+        .panel p {
+            margin: 0;
+            color: #c8cee2;
+            font-size: 13px;
+        }
+
+        .intro-text {
+            margin-top: 12px !important;
+        }
+
+        .facts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 9px;
+        }
+
+        .fact {
+            background: #202943;
+            border: 1px solid #354263;
+            border-radius: 10px;
+            padding: 9px 12px;
+            font-size: 12px;
+            color: #cbd2e9;
+        }
+
+        .fact b {
+            color: #c8b7ff;
+        }
+
+        .pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .pill {
+            font-size: 11px;
+            color: #ddd4ff;
+            background: #282541;
+            border: 1px solid #514775;
+            border-radius: 30px;
+            padding: 4px 11px;
+        }
+
+        /* Topics */
+        .topics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .topic {
+            background: #141b30;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 17px;
+            min-height: 145px;
+        }
+
+        .topic .ico {
+            font-size: 22px;
+            color: var(--purple);
+        }
+
+        .topic h3 {
+            font-size: 14px;
+            margin: 5px 0;
+            color: #e7e2ff;
+        }
+
+        .topic p {
+            font-size: 11px;
+            color: var(--muted);
+            margin: 0;
+        }
+
+        /* Skills */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 9px;
+        }
+
+        .skill {
+            text-align: center;
+            padding: 14px 6px;
+            background: #141b30;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            font-size: 12px;
+        }
+
+        .skill b {
+            display: block;
+            color: var(--blue);
+            font-size: 17px;
+        }
+
+        .skill small {
+            color: var(--muted);
+            font-size: 10px;
+        }
+
+        .skill-note {
+            color: var(--muted);
+            font-size: 11px;
+            margin-top: 10px;
+        }
+
+        /* Languages */
+        .list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .listitem {
+            padding: 14px 16px;
+            background: #141a2d;
+            border-right: 2px solid #8275bb;
+            border-radius: 9px;
+        }
+
+        .listitem b {
+            display: block;
+            font-size: 13px;
+            color: #e5ddff;
+        }
+
+        .listitem span {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        /* Aesthetic */
+        .aesthetic {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .mood {
+            border-radius: 13px;
+            padding: 16px;
+            background: #171d32;
+            border: 1px solid var(--line);
+            font-size: 12px;
+        }
+
+        .swatch {
+            height: 30px;
+            border-radius: 7px;
+            margin-bottom: 10px;
+            background: linear-gradient(
+                90deg,
+                #171421,
+                #30254a,
+                #536f9a,
+                #a99be0
+            );
+        }
+
+        .mood:nth-child(2) .swatch {
+            background: linear-gradient(90deg, #090c18, #182344, #456b91, #a7c5e9);
+        }
+
+        .mood:nth-child(3) .swatch {
+            background: linear-gradient(90deg, #201b2c, #55466e, #8d83a7, #d4c8df);
+        }
+
+        .mood:nth-child(4) .swatch {
+            background: linear-gradient(90deg, #24202a, #5b514d, #a18a79, #d5c2a5);
+        }
+
+        .mood span {
+            color: var(--muted);
+            font-size: 10px;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 28px 0 40px;
+            color: #7f8aa9;
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
+        /* Responsive */
+        @media(max-width: 700px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 20px;
+            }
+
+            .sky {
+                height: 230px;
+                grid-row: 1;
+            }
+
+            .moon {
+                width: 145px;
+                height: 145px;
+            }
+
+            .moon:after {
+                width: 134px;
+                height: 134px;
+                left: 43px;
+                top: -17px;
+            }
+
+            .orbit {
+                width: 230px;
+                height: 230px;
+            }
+
+            .grid2 {
+                grid-template-columns: 1fr;
+            }
+
+            .topics {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .skills {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .aesthetic {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .links {
+                gap: 9px;
+                font-size: 10px;
+            }
+
+            .list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+
+    <nav>
+        <div class="brand">A T E N A / INNER UNIVERSE</div>
+        <div class="links">
+            <a href="#about">من</a>
+            <a href="#topics">موضوعاتم</a>
+            <a href="#skills">کدنویسی</a>
+            <a href="#mood">سلیقه‌ام</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div>
+            <div class="kicker">A PERSONAL DIGITAL NOTEBOOK</div>
+            <h1>آتنا<span>،</span><b>رضاحسینی.</b></h1>
+            <div class="tagline">
+                متولد 1387/1/23 از کرمان
+            </div>
+        </div>
+
+        <div class="sky">
+            <div class="orbit"></div>
+            <div class="moon"></div>
+            <span class="star s1">✦</span>
+            <span class="star s2">✧</span>
+            <div class="skylabel">NIGHT THOUGHTS · OPEN TABS</div>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="heading">
+            <span class="no">01 /</span>
+            <h2>پشت این صفحه</h2>
+        </div>
+
+        <div class="grid2">
+            <div class="panel">
+                <div class="label">A LITTLE INTRODUCTION</div>
+                <p class="intro-text">
+                    من آتنا هستم؛ از کرمان. به کامپیوتر و برنامه‌نویسی
+                    علاقه دارم، اما کنجکاوی‌ام فقط به کد محدود نمی‌شود.
+                    دوست دارم چیزها را از ریشه بفهمم
+                </p>
+            </div>
+
+            <div class="panel">
+                <div class="label">QUICK FACTS</div>
+                <div class="facts">
+                    <div class="fact"><b>شهر</b><br>کرمان، ایران</div>
+                    <div class="fact"><b>حال‌وهوای شخصیتی</b><br>درون‌گرا و منطقی</div>
+                    <div class="fact"><b>مسیر تحصیلی</b><br>ریاضی و کامپیوتر</div>
+                    <div class="fact"><b>عبارت من</b><br>Calm but chaotic</div>
+                </div>
+
+                <div class="pills">
+                    <span class="pill">INTP</span>
+                    <span class="pill">کنجکاو</span>
+                    <span class="pill">اهل یادگیری</span>
+                    <span class="pill">خانه‌دوست</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="topics">
+        <div class="heading">
+            <span class="no">02 /</span>
+            <h2>چیزهایی که درباره‌شان حرف می‌زنم</h2>
+        </div>
+
+        <div class="topics">
+            <div class="topic">
+                <div class="ico">⌘</div>
+                <h3>برنامه‌نویسی و تکنولوژی</h3>
+                <p>HTML، CSS، بوت‌استرپ، جاوااسکریپت، پایتون، جنگو، ساخت صفحه و تمرین کدنویسی.</p>
+            </div>
+
+            <div class="topic">
+                <div class="ico">𓂀</div>
+                <h3>تاریخ و تمدن‌ها</h3>
+                <p>از ایلام و ایران باستان تا آشوری‌ها، آیین‌ها، پوشاک و اتفاقات جهان در گذر زمان.</p>
+            </div>
+
+            <div class="topic">
+                <div class="ico">✧</div>
+                <h3>طراحی و زیبایی‌شناسی</h3>
+                <p>دارک‌فمینین، گوتیک، طرح‌های نجومی، ماسک‌های خیال‌انگیز و تصویرسازی‌های شخصی.</p>
+            </div>
+
+            <div class="topic">
+                <div class="ico">♫</div>
+                <h3>موسیقی و سینما</h3>
+                <p>موسیقی‌های غمگین و سینمایی، آهنگ‌های شبانه، فیلم‌های اجتماعی ایرانی و طنز.</p>
+            </div>
+
+            <div class="topic">
+                <div class="ico">⌕</div>
+                <h3>یادگیری و زبان</h3>
+                <p>تمرین انگلیسی، نوشتن متن، یادگیری مفاهیم تازه و توضیح‌های ساده و مرحله‌به‌مرحله.</p>
+            </div>
+
+            <div class="topic">
+                <div class="ico">☕</div>
+                <h3>زندگی و جزئیات</h3>
+                <p>اتاق شخصی، چیدمان، گل‌ها، خوراکی‌های ترش، چای، باران و ایده‌های کوچک روزمره.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="heading">
+            <span class="no">03 /</span>
+            <h2>مسیر کدنویسی من</h2>
+        </div>
+
+        <div class="skills">
+            <div class="skill"><b>HTML</b><small>ساختار صفحه</small></div>
+            <div class="skill"><b>CSS</b><small>استایل و چیدمان</small></div>
+            <div class="skill"><b>JS</b><small>منطق و تعامل</small></div>
+            <div class="skill"><b>Python</b><small>مبانی برنامه‌نویسی</small></div>
+            <div class="skill"><b>Django</b><small>ساخت وب‌اپ</small></div>
+        </div>
+
+        <p class="skill-note">
+            این‌ها موضوعاتی هستند که یاد گرفته‌ام یا در حال تمرینشان هستم؛
+            نه ادعای تسلط حرفه‌ای.
+        </p>
+    </section>
+
+    <section>
+        <div class="heading">
+            <span class="no">04 /</span>
+            <h2>زبان هایی بلدم</h2>
+        </div>
+
+        <div class="list">
+            <div class="listitem">
+                <b>English</b>
+                <span>متوسط</span>
+            </div>
+
+            <div class="listitem">
+                <b>Turkic</b>
+                <span>مبتدی</span>
+            </div>
+
+            <div class="listitem">
+                <b>persian</b>
+                <span>زبان مادری</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="mood">
+        <div class="heading">
+            <span class="no">05 /</span>
+            <h2>پالتِ حال‌وهوای من</h2>
+        </div>
+
+        <div class="aesthetic">
+            <div class="mood">
+                <div class="swatch"></div>
+                بنفش و آبی
+                <span>شب، خیال، آرامش و کمی اندوه</span>
+            </div>
+
+            <div class="mood">
+                <div class="swatch"></div>
+                آسمان شب
+                <span>ماه، ستاره و پنجره رو به افق</span>
+            </div>
+
+            <div class="mood">
+                <div class="swatch"></div>
+                گل بابونه
+                <span>سادگی و لطافت بی‌ادعا</span>
+            </div>
+
+            <div class="mood">
+                <div class="swatch"></div>
+                پاییز و باران
+                <span>چای، هوای خنک و موسیقی</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        ATENA'S NOTEBOOK · MADE OF CODE, CURIOSITY & MIDNIGHT BLUE
+    </footer>
+
+</div>
+</body>
+</html>
